@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"] 
+build-backend = "hatchling.build"
+
+[project]
+name = "pyv"
+version = "1.0.0"
+description = "A module for '.pyv' file"
+license = {text = "MIT"}
+authors = [
+    { name = "Locked-chess-official", email = "13140752715@163.com" }
+]
+requires-python = ">=3.7"
