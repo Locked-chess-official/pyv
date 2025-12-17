@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pyv"
+name = "pyv_file_running"
 version = "1.0.0"
 description = "A module for '.pyv' file"
 license = {text = "MIT"}
@@ -16,7 +16,9 @@ requires-python = ">=3.7"
 homepage = "https://github.com/Locked-chess-official/pyv"
 
 [tool.hatch.build.targets.wheel]
-modules = ["myscript"]
+sources = ["."]
+modules = ["pyv"]
+include = ["pyv.py"]
 
 [project.scripts]
 pyv = "pyv:main"

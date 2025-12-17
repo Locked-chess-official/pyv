@@ -3,7 +3,7 @@
 ## Install
 
 ```sh
-pip install pyv
+pip install pyv_file_running
 ```
 
 ## Usage
