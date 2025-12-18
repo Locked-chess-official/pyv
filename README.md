@@ -104,6 +104,29 @@ with open("test.py", "w") as f:
     f.write(final_code)
 ```
 
+## Write the file to python
+
+You can use this module to write the `.pyv` file to python file:
+
+```python
+import pyv
+pyv.witer_pyv_file_to_py("test.pyv", "test.py")
+```
+
+If you have the code string, you can also write it to python file:
+
+```python
+import pyv
+code = """
+$ version <= 3.7; platform == "win32"
+print("old_python")
+$ _
+print("other")
+$
+"""
+pyv.witer_pyv_to_py(code, "test.py")
+```
+
 ## All apis
 
 ```python
@@ -111,6 +134,8 @@ pyv.set_new_env(version: tuple[int, int] | None=None, platform: str | None=None,
 pyv.preprocess_pyv(source: str, env=None) -> str: ...
 pyv.exec_pyv_source(source: str, filename="<pyv>", globals=None, locals=None, env=None) -> None: ...
 pyv.exec_pyv_file(path: str, globals=None, locals=None, env=None) -> None: ...
+pyv.witer_pyv_to_py(source: str, filename: str, env=None) -> None: ...
+pyv.witer_pyv_file_to_py(path: str, file_name: str, env=None) -> None: ...
 ```
 
 ## License

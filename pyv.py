@@ -235,6 +235,32 @@ def exec_pyv_file(path: str, globals=None, locals=None, env=None):
     exec_pyv_source(source, str(path), globals, locals, env)
 
 
+def witer_pyv_to_py(source: str, filename: str, env=None) -> None:
+    """
+    Convert pyv source code to python source code.
+    params:
+        source: pyv source code
+        filename: filename for error reporting
+        env: environment dict. Defaults to local python environment.
+    """
+    final_code = preprocess_pyv(source, env)
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(final_code)
+
+
+def witer_pyv_file_to_py(path: str, file_name: str, env=None) -> None:
+    """
+    Convert pyv file to python file.
+    params:
+        path: path to pyv file
+        file_name: filename for output python file
+        env: environment dict. Defaults to local python environment.
+    """
+    path = Path(path)
+    source = path.read_text(encoding="utf-8")
+    witer_pyv_to_py(source, file_name, env)
+
+
 def main():
     if len(sys.argv) == 1:
         print("no file given", file=sys.stderr)
